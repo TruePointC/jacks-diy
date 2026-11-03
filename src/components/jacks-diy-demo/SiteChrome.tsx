@@ -25,7 +25,7 @@ const NAV = [
   { key: "home", label: "Home", href: HOME },
   { key: "services", label: "Services", href: SERVICES },
   { key: "reviews", label: "Reviews", href: REVIEWS },
-  { key: "work", label: "Jobs", href: RECENT_JOBS },
+  { key: "work", label: "Recent jobs", href: RECENT_JOBS },
 ] as const;
 
 // Skip link and sticky header with the site menu
@@ -38,7 +38,7 @@ export function JacksHeader({ current }: { current: "home" | "services" | "revie
         href={item.href}
         aria-current={active ? "page" : undefined}
         style={display}
-        className={`flex min-h-11 items-center justify-center border-b-[3px] px-1 text-base font-extrabold tracking-wide uppercase transition-colors duration-150 hover:text-[#D7262E] md:text-lg ${focusRing} ${active ? "border-[#D7262E]" : "border-transparent"}`}
+        className={`flex min-h-11 items-center justify-center border-b-[3px] px-0.5 text-sm font-extrabold tracking-normal uppercase transition-colors duration-150 hover:text-[#D7262E] sm:text-base md:px-1 md:text-lg md:tracking-wide ${focusRing} ${active ? "border-[#D7262E]" : "border-transparent"}`}
       >
         {item.label}
       </Link>
