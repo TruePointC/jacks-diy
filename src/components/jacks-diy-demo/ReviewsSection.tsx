@@ -21,23 +21,33 @@ function Stars({ rating }: { rating: number }) {
 
 // Hides itself while there are no real reviews yet — never fills this with
 // placeholder/example quotes, see the note on jacksReviews in the config.
-export function ReviewsSection({ reviews }: { reviews: Review[] }) {
+// `showHeading` is false when the caller's own page already has a hero
+// heading (e.g. the dedicated /reviews page) and this should just be the
+// average-rating line + card grid underneath it.
+export function ReviewsSection({ reviews, showHeading = true }: { reviews: Review[]; showHeading?: boolean }) {
   if (!reviews.length) return null;
 
   const average = reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length;
+  const summary = (
+    <p className="flex items-center gap-2 text-lg font-bold" style={{ color: INK }}>
+      <Stars rating={Math.round(average)} />
+      {average.toFixed(1)} from {reviews.length} {reviews.length === 1 ? "review" : "reviews"}
+    </p>
+  );
 
   return (
-    <section aria-labelledby="reviews-title" className="py-16 sm:py-20">
+    <section aria-labelledby={showHeading ? "reviews-title" : undefined} className="py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-          <h2 id="reviews-title" style={display} className="text-5xl leading-[0.9] font-black uppercase sm:text-6xl">
-            What people say
-          </h2>
-          <p className="flex items-center gap-2 text-lg font-bold" style={{ color: INK }}>
-            <Stars rating={Math.round(average)} />
-            {average.toFixed(1)} from {reviews.length} {reviews.length === 1 ? "review" : "reviews"}
-          </p>
-        </div>
+        {showHeading ? (
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <h2 id="reviews-title" style={display} className="text-5xl leading-[0.9] font-black uppercase sm:text-6xl">
+              What people say
+            </h2>
+            {summary}
+          </div>
+        ) : (
+          summary
+        )}
 
         <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {reviews.map((review, i) => (

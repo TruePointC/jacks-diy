@@ -3,7 +3,7 @@ import { Phone } from "@phosphor-icons/react/dist/ssr";
 import { jacksDemo } from "@/lib/config";
 import { TRUEPOINT_URL } from "@/lib/site";
 import { JacksMark } from "./JacksMark";
-import { RED, INK, display, stencil, mono, mailto, tel, focusRing, HOME, SERVICES, RECENT_JOBS, PRIVACY } from "./theme";
+import { RED, INK, display, stencil, mono, mailto, tel, focusRing, HOME, SERVICES, REVIEWS, RECENT_JOBS, PRIVACY } from "./theme";
 
 export function Wordmark({ size }: { size: "sm" | "lg" }) {
   return (
@@ -24,11 +24,12 @@ export function Wordmark({ size }: { size: "sm" | "lg" }) {
 const NAV = [
   { key: "home", label: "Home", href: HOME },
   { key: "services", label: "Services", href: SERVICES },
-  { key: "work", label: "Recent jobs", href: RECENT_JOBS },
+  { key: "reviews", label: "Reviews", href: REVIEWS },
+  { key: "work", label: "Jobs", href: RECENT_JOBS },
 ] as const;
 
 // Skip link and sticky header with the site menu
-export function JacksHeader({ current }: { current: "home" | "services" | "work" }) {
+export function JacksHeader({ current }: { current: "home" | "services" | "reviews" | "work" }) {
   const navLinks = NAV.map((item) => {
     const active = item.key === current;
     return (
@@ -37,7 +38,7 @@ export function JacksHeader({ current }: { current: "home" | "services" | "work"
         href={item.href}
         aria-current={active ? "page" : undefined}
         style={display}
-        className={`flex min-h-11 items-center justify-center border-b-[3px] px-1 text-lg font-extrabold tracking-wide uppercase transition-colors duration-150 hover:text-[#D7262E] ${focusRing} ${active ? "border-[#D7262E]" : "border-transparent"}`}
+        className={`flex min-h-11 items-center justify-center border-b-[3px] px-1 text-base font-extrabold tracking-wide uppercase transition-colors duration-150 hover:text-[#D7262E] md:text-lg ${focusRing} ${active ? "border-[#D7262E]" : "border-transparent"}`}
       >
         {item.label}
       </Link>
@@ -79,7 +80,7 @@ export function JacksHeader({ current }: { current: "home" | "services" | "work"
           </div>
         </div>
         {/* Phones: the menu sits on its own row under the logo */}
-        <nav aria-label="Main" className="grid grid-cols-3 border-t-2 px-2 md:hidden" style={{ borderColor: INK }}>
+        <nav aria-label="Main" className="grid grid-cols-4 border-t-2 px-2 md:hidden" style={{ borderColor: INK }}>
           {navLinks}
         </nav>
       </header>
