@@ -3,7 +3,7 @@ import { Phone } from "@phosphor-icons/react/dist/ssr";
 import { jacksDemo } from "@/lib/config";
 import { TRUEPOINT_URL } from "@/lib/site";
 import { JacksMark } from "./JacksMark";
-import { RED, INK, display, stencil, mono, mailto, tel, focusRing, HOME, SERVICES, REVIEWS, RECENT_JOBS, PRIVACY } from "./theme";
+import { RED, INK, display, stencil, mono, mailto, tel, focusRing, HOME, SERVICES, REVIEWS, RECENT_JOBS, PRIVACY, TERMS } from "./theme";
 
 export function Wordmark({ size }: { size: "sm" | "lg" }) {
   return (
@@ -119,6 +119,10 @@ export function JacksFooter() {
         &copy; {new Date().getFullYear()} {jacksDemo.businessName} ·{" "}
         <Link href={PRIVACY} className="underline underline-offset-2 hover:text-white">
           Privacy Policy
+        </Link>{" "}
+        ·{" "}
+        <Link href={TERMS} className="underline underline-offset-2 hover:text-white">
+          Terms of Service
         </Link>{" "}
         · Site by{" "}
         <a

@@ -32,3 +32,4 @@ export const SERVICES = "/services";
 export const REVIEWS = "/reviews";
 export const RECENT_JOBS = "/recent-jobs";
 export const PRIVACY = "/privacy";
+export const TERMS = "/terms";
