@@ -337,3 +337,17 @@ export const jacksFaqs = [
     a: "Yes, please do. Attach them to the email the quote form opens. A photo helps Jack give you an accurate price.",
   },
 ];
+
+// Real reviews only — none yet. Add them here as Jack gets them; the
+// Reviews section on the home page hides itself automatically while this
+// is empty, and appears as soon as it has at least one entry. `rating` is
+// 1-5. `job` and `location` are optional, short context (e.g. "Socket swap",
+// "Cleveleys") — never invent a review or fill this with example/placeholder
+// quotes, this is a real business.
+export const jacksReviews: {
+  name: string;
+  rating: 1 | 2 | 3 | 4 | 5;
+  quote: string;
+  job?: string;
+  location?: string;
+}[] = [];

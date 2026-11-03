@@ -9,6 +9,7 @@ import {
   jacksSteps,
   jacksStrip,
   jacksAllServices,
+  jacksReviews,
 } from "@/lib/config";
 import { FeaturedRoom } from "@/components/jacks-diy-demo/FeaturedRoom";
 import { JacksTradeScene } from "@/components/jacks-diy-demo/JacksTradeScene";
@@ -16,6 +17,7 @@ import { JacksHeader, JacksFooter } from "@/components/jacks-diy-demo/SiteChrome
 import { JobList } from "@/components/jacks-diy-demo/JobList";
 import { AvailabilityWeek, TodayAvailability } from "@/components/jacks-diy-demo/AvailabilityWeek";
 import { QuoteRequest } from "@/components/jacks-diy-demo/QuoteRequest";
+import { ReviewsSection } from "@/components/jacks-diy-demo/ReviewsSection";
 import { serviceIcons } from "@/components/jacks-diy-demo/serviceIcons";
 import {
   RED,
@@ -228,6 +230,8 @@ export default function JacksDiyDemoPage() {
             </div>
           </div>
         </section>
+
+        <ReviewsSection reviews={jacksReviews} />
 
         {/* When Jack's free */}
         <section className="border-y-2 py-16 sm:py-20" style={{ borderColor: INK }}>
