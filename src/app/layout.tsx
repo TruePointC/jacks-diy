@@ -5,6 +5,7 @@ import {
   Atkinson_Hyperlegible_Next,
   Atkinson_Hyperlegible_Mono,
 } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { INK, PAPER } from "@/components/jacks-diy-demo/theme";
 import { SITE_URL } from "@/lib/site";
@@ -66,6 +67,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         }}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );
