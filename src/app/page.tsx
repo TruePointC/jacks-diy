@@ -9,8 +9,11 @@ import {
   jacksSteps,
   jacksStrip,
   jacksAllServices,
+  jacksReviews,
 } from "@/lib/config";
 import { FeaturedRoom } from "@/components/jacks-diy-demo/FeaturedRoom";
+import { ReviewsSection } from "@/components/jacks-diy-demo/ReviewsSection";
+import { RoomScrollTour } from "@/components/jacks-diy-demo/RoomScrollTour";
 import { JacksTradeScene } from "@/components/jacks-diy-demo/JacksTradeScene";
 import { JacksHeader, JacksFooter } from "@/components/jacks-diy-demo/SiteChrome";
 import { JobList } from "@/components/jacks-diy-demo/JobList";
@@ -67,7 +70,10 @@ export default function JacksDiyDemoPage() {
       />
 
       <main id="main" className="relative z-10">
-        {/* Hero: the job list is the page's whole point, so it opens the page */}
+        {/* New hero: scroll-zoom tour through a sample room, tying straight into the real job list */}
+        <RoomScrollTour />
+
+        {/* Full job checklist, now second rather than the very first thing */}
         <section data-trade="hammer" className="border-b-2" style={{ borderColor: INK }}>
           <div className="mx-auto grid max-w-6xl gap-10 px-4 pt-10 pb-14 sm:px-6 sm:pt-14 lg:grid-cols-[1fr_440px] lg:gap-14 lg:px-8 lg:pt-16 lg:pb-20">
             <div className="lg:pt-6">
@@ -228,6 +234,9 @@ export default function JacksDiyDemoPage() {
             </div>
           </div>
         </section>
+
+        {/* Reviews: hides itself if the list's ever empty, see ReviewsSection */}
+        <ReviewsSection reviews={jacksReviews} />
 
         {/* When Jack's free */}
         <section className="border-y-2 py-16 sm:py-20" style={{ borderColor: INK }}>

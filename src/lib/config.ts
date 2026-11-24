@@ -344,10 +344,37 @@ export const jacksFaqs = [
 // 1-5. `job` and `location` are optional, short context (e.g. "Socket swap",
 // "Cleveleys") — never invent a review or fill this with example/placeholder
 // quotes, this is a real business.
+// Real reviews from Jack's DIY's Facebook page (facebook.com/61596345772116),
+// copied verbatim. Never add placeholder/example reviews to this list.
 export const jacksReviews: {
   name: string;
   rating: 1 | 2 | 3 | 4 | 5;
   quote: string;
   job?: string;
   location?: string;
-}[] = [];
+}[] = [
+  {
+    name: "Daisy Cardwell",
+    rating: 5,
+    quote:
+      "What a lovely young man who is so helpful, communicates, turns up on time, knows exactly what the job is and needs to be done, I highly recommend Jack. A huge thank you!",
+  },
+  {
+    name: "Wendy Claase",
+    rating: 5,
+    quote:
+      "Jack did a great job at my home. He arrived on time, did an excellent job, and left having cleaned up beautifully. Can highly recommend!! Thank you!!",
+  },
+  {
+    name: "Alex Twiggy",
+    rating: 5,
+    quote:
+      "Jack has done some great work for us, very helpful, punctual and hardworking. Would definitely recommend as results were fantastic!",
+  },
+  {
+    name: "Danni Stacey",
+    rating: 5,
+    quote:
+      "Absolutely fantastic! Really fast replies, super easy to talk to! They came out and helped us really last minute (on our part) and were amazing! They even came back to make sure the job was done!",
+  },
+];
